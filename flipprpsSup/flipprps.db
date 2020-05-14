@@ -24,6 +24,19 @@ record(bo, "$(P)POLARITY")
 }
 alias("$(P)POLARITY", "$(P)POLARITY:SP")
 
+record(stringin, "$(P)ID")
+{
+    field(DESC, "Poll ID of device to check connection status")
+    field(DTYP, "stream")
+    field(INP, "@flipprps.proto getId $(PORT)")
+    field(PINI, "YES")
+    field(SCAN, "10 second")
+    info(alarm, "FLIPPRPS")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:ID")
+    field(SDIS, "$(P)DISABLE")
+}
+
 record(bo, "$(P)SIM")
 {
     field(SCAN, "Passive")
@@ -39,3 +52,10 @@ record(bi, "$(P)SIM:POLARITY")
     field(DTYP, "Soft Channel")
 }
 alias("$(P)SIM:POLARITY", "$(P)SIM:POLARITY:SP")
+
+record(stringout, "$(P)SIM:ID")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+    field(VAL, "Flipper")
+}
