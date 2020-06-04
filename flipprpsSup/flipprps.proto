@@ -4,3 +4,8 @@ setPolarity {
     out "%{dn|up}";
     in "OK";
 }
+
+getId {
+    out "id";
+    in "%s";
+}
